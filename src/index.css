@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens — warm ink & paper ledger palette */
+  --color-ink: #1c1b19;
+  --color-paper: #faf7f0;
+  --color-paper-dim: #f1ecdf;
+  --color-brass: #8a6e4b;
+  --color-brass-light: #b5976d;
+  --color-ledger-green: #3d5a4c;
+  --color-ledger-green-light: #5c7d6c;
+  --color-stamp-red: #a6432f;
+  --color-stamp-red-light: #c1614c;
+  --color-border-paper: #d9d2c2;
+
+  /* Font families */
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Radii — small, paper-card-like, never fully rounded */
+  --radius-card: 0.375rem;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
